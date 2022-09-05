@@ -1,23 +1,32 @@
-import logo from './logo.svg';
+import React, {useState} from "react"
 import './App.css';
 
+
 function App() {
+  // Below array destructuren syntax is equivalent toString; 
+  // const newTodoStateArr = useState("");
+  //const newTodo = newTodoSTateArr[0];
+  //const setNewTodo = newTodoStateArr[1];
+
+
+
+  const [newTodo, setNewTodo] = useState("");
+  const [todos, setTodos] = useState([]);
+
+  const handleNewTodoSubmit=(event) => {
+    event.preventDefault();
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <form onSubmit={(event) => {
+        handleNewTodoSubmit(event);
+      }}>
+        <input onChange={(event) => {
+          setNewTodo(event.target.value);
+        }} type="text" />
+        div
+      </form>
     </div>
   );
 }
